@@ -6,7 +6,7 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="OnAddAccount" />
     </ContentPage.ToolbarItems>
-    <ListView x:Name="accounts" ItemSelected="OnAccountSelected">
+    <ListView x:Name="accountsListView" ItemSelected="OnAccountSelected">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <TextCell Text="{Binding Name}">

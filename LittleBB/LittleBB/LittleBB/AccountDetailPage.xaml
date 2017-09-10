@@ -2,9 +2,31 @@
 <ContentPage Title="Account Info" xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LittleBB.AccountDetailPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin Forms!" />
-        </StackLayout>
-    </ContentPage.Content>
+    <StackLayout Padding="5, 10, 5, 5">
+        <Label Text="Name" FontSize="20" FontAttributes="Bold"/>
+        <Entry Placeholder="Name" Text="{Binding Name}"/>
+        <Label Text="Info" FontSize="20" FontAttributes="Bold"/>
+        <Entry Placeholder="Password or other info" Text="{Binding A_Note}"/>
+        <Entry Placeholder="Password or other info" Text="{Binding B_Note}"/>
+        <Entry Placeholder="Password or other info" Text="{Binding C_Note}"/>
+        <Button Text="Save" Clicked="OnSave"/>
+    </StackLayout>
 </ContentPage>
+
+<!--<TableView Intent="Form">
+    <TableRoot>
+        <TableSection Title="Name">
+            <EntryCell Text="{Binding Name}" HorizontalTextAlignment="Start"/>
+        </TableSection>
+        <TableSection Title="Notes">
+            <EntryCell Text="{Binding A_Note}"/>
+            <EntryCell Text="{Binding B_Note}"/>
+            <EntryCell Text="{Binding C_Note}"/>
+        </TableSection>
+        <TableSection>
+            <ViewCell>
+                <Button Text="Save" Clicked="OnSaveAccount"/>
+            </ViewCell>
+        </TableSection>
+    </TableRoot>
+</TableView>-->
