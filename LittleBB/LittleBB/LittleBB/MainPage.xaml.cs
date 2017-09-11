@@ -20,23 +20,24 @@ namespace LittleBB
 
             _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
             _connection.CreateTableAsync<Account>();
+
         }
 
         protected override async void OnAppearing()
         {
-            //await _connection.CreateTableAsync<Account>();
-            //_accounts.OrderBy(x => x.Name).ToList();
-
+           
             var accounts = await _connection.Table<Account>().ToListAsync();
             _accounts = new ObservableCollection<Account>(accounts);
-            accountsListView.ItemsSource = _accounts.OrderBy(x => x.Name);
-            //accountsListView.ItemsSource = _accounts;
+            //calling Update() instead
+            //accountsListView.ItemsSource = _accounts.OrderBy(x => x.Name);
+            Update();
 
             base.OnAppearing();
         }
 
         async void OnAddAccount(object sender, EventArgs e)
         {
+            
             var page = new AccountDetailPage(new Account());
 
             page.AccountAdded += (source, account) =>
@@ -47,6 +48,10 @@ namespace LittleBB
             };
 
             await Navigation.PushAsync(page);
+
+            //Clear search bar text when returning to page
+            searchBar.Text = null;
+
         }
 
         async void OnAccountSelected(object sender, SelectedItemChangedEventArgs e)
@@ -58,6 +63,7 @@ namespace LittleBB
 
             accountsListView.SelectedItem = null;
 
+          
             var page = new AccountDetailPage(selectedAccount);
 
             page.AccountUpdated += (source, account) =>
@@ -87,6 +93,10 @@ namespace LittleBB
             };
 
             await Navigation.PushAsync(page);
+
+            //Clear search bar text when returning to page
+            searchBar.Text = null;
+
         }
 
         async void OnDelete(object sender, EventArgs e)
@@ -101,10 +111,25 @@ namespace LittleBB
             }
         }
 
-        private void Update()
+        private void Update(string searchText = null)
         {
             accountsListView.ItemsSource = null;
-            accountsListView.ItemsSource = _accounts.OrderBy(x => x.Name);
+
+            if (String.IsNullOrWhiteSpace(searchText))
+            {
+                //accountsListView.ItemsSource = null;
+                accountsListView.ItemsSource = _accounts.OrderBy(x => x.Name); 
+            }
+            else
+            {
+                accountsListView.ItemsSource = _accounts.Where(x => x.Name.ToLower().StartsWith(searchText.ToLower()));
+            }
+
+        }
+
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Update(e.NewTextValue);
         }
     }
 }

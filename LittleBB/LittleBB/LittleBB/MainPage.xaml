@@ -6,19 +6,22 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="OnAddAccount" />
     </ContentPage.ToolbarItems>
-    <ListView x:Name="accountsListView" ItemSelected="OnAccountSelected">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <TextCell Text="{Binding Name}">
-                    <TextCell.ContextActions>
-                        <MenuItem 
-                            Text="Delete"
-                            IsDestructive="True"
-                            Clicked="OnDelete"
-                            CommandParameter="{Binding .}"/>
-                    </TextCell.ContextActions>
-                </TextCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+    <StackLayout>
+        <SearchBar x:Name="searchBar" Placeholder="Search..." TextChanged="SearchBar_TextChanged" />
+        <ListView x:Name="accountsListView" ItemSelected="OnAccountSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}">
+                        <TextCell.ContextActions>
+                            <MenuItem 
+                                Text="Delete"
+                                IsDestructive="True"
+                                Clicked="OnDelete"
+                                CommandParameter="{Binding .}"/>
+                        </TextCell.ContextActions>
+                    </TextCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>

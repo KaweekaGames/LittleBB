@@ -14,6 +14,7 @@ namespace LittleBB
             InitializeComponent();
 
             MainPage = new NavigationPage(new MainPage());
+
         }
 
         protected override void OnStart()
