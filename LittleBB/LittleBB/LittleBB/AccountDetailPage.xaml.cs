@@ -30,34 +30,9 @@ namespace LittleBB
                 A_Note = account.A_Note,
                 B_Note = account.B_Note,
                 C_Note = account.C_Note,
-                Existing = account.Existing
+                Status = account.Status
             };
         }
-
-        //async void OnSaveAccount(object sender, EventArgs e)
-        //{
-        //    var account = BindingContext as Account;
-
-        //    if (String.IsNullOrWhiteSpace(account.Name))
-        //    {
-        //        await DisplayAlert("Error", "Please enter name for account", "OK");
-        //        return;
-        //    }
-
-        //    if(account.Existing == 0)
-        //    {
-        //        account.Existing = 1;
-
-        //        AccountAdded?.Invoke(this, account);
-        //    }
-        //    else
-        //    {
-        //        await DisplayAlert("test", "test", "ok");
-        //        AccountUpdated?.Invoke(this, account);
-        //    }
-
-        //    await Navigation.PopAsync();
-        //}
 
         async void OnSave(object sender, EventArgs e)
         {
@@ -69,19 +44,12 @@ namespace LittleBB
                 return;
             }
 
-            if (account.Existing == 0)
+            if (account.Status == null)
             {
-                await DisplayAlert("test", account.Existing.ToString(), "ok");
-
-                account.Existing = 1;
-
-                await DisplayAlert("2nd", account.Existing.ToString(), "ok");
-
                 AccountAdded?.Invoke(this, account);
             }
             else
             {
-                await DisplayAlert("test", "test", "ok");
                 AccountUpdated?.Invoke(this, account);
             }
 

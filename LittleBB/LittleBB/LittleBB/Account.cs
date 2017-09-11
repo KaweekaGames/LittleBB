@@ -16,6 +16,6 @@ namespace LittleBB
         public string C_Note { get; set; }
 
         //Way to differentiate between new and existing contacts
-        public int Existing = 0;
+        public string Status { get; set; }
     }
 }

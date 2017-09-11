@@ -41,6 +41,7 @@ namespace LittleBB
 
             page.AccountAdded += (source, account) =>
             {
+                account.Status = "created";
                 _connection.InsertAsync(account);
                 _accounts.Add(account);
             };
@@ -61,24 +62,28 @@ namespace LittleBB
 
             page.AccountUpdated += (source, account) =>
             {
-                selectedAccount.Name = account.Name;
-                selectedAccount.A_Note = account.A_Note;
-                selectedAccount.B_Note = account.B_Note;
-                selectedAccount.C_Note = account.C_Note;
-                selectedAccount.Existing = account.Existing;
+                //selectedAccount.Name = account.Name;
+                //selectedAccount.A_Note = account.A_Note;
+                //selectedAccount.B_Note = account.B_Note;
+                //selectedAccount.C_Note = account.C_Note;
+                //selectedAccount.Status = account.Status;
 
                 //Hack
-                //var updatedAccount = new Account();
-                //updatedAccount.Name = account.Name;
-                //updatedAccount.A_Note = account.A_Note;
-                //updatedAccount.B_Note = account.B_Note;
-                //updatedAccount.C_Note = account.C_Note;
-                //updatedAccount.Existing = account.Existing;
-                //_connection.DeleteAsync(selectedAccount);
-                //_accounts.Remove(selectedAccount);
-                //_connection.InsertAsync(updatedAccount);
-                //_accounts.Add(updatedAccount);
-                //Update();
+                var updatedAccount = new Account();
+
+                updatedAccount.Name = account.Name;
+                updatedAccount.A_Note = account.A_Note;
+                updatedAccount.B_Note = account.B_Note;
+                updatedAccount.C_Note = account.C_Note;
+                updatedAccount.Status = account.Status;
+
+                _connection.DeleteAsync(selectedAccount);
+                _accounts.Remove(selectedAccount);
+
+                _connection.InsertAsync(updatedAccount);
+                _accounts.Add(updatedAccount);
+
+                Update();
             };
 
             await Navigation.PushAsync(page);
