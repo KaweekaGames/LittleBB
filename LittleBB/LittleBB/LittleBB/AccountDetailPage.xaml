@@ -1,14 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage Title="Account Info" xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage Title="Entry Detail" xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LittleBB.AccountDetailPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Clicked="OnSave"/>
+    </ContentPage.ToolbarItems>
     <StackLayout Padding="5, 10, 5, 5">
-        <Label Text="Name" FontSize="20" FontAttributes="Bold"/>
-        <Entry Placeholder="Name" Text="{Binding Name}" Keyboard="Text"/>
-        <Label Text="Info" FontSize="20" FontAttributes="Bold"/>
-        <Entry Placeholder="Password or other info" Text="{Binding A_Note}" Keyboard="Plain" />
-        <Entry Placeholder="Password or other info" Text="{Binding B_Note}" Keyboard="Plain"/>
-        <Entry Placeholder="Password or other info" Text="{Binding C_Note}" Keyboard="Plain"/>
-        <Button Text="Save" Clicked="OnSave"/>
+        <StackLayout>
+            <Label Text="Title" FontSize="20" FontAttributes="Bold"/>
+            <Entry Placeholder="Name" Text="{Binding Name}" Keyboard="Text"/>
+        </StackLayout >
+        <StackLayout Padding="0, 10, 0, 0">
+            <Label Text="Notes" FontSize="20" FontAttributes="Bold"/>
+            <Entry Placeholder="note" Text="{Binding A_Note}" Keyboard="Plain" />
+            <Entry Placeholder="additional note" Text="{Binding B_Note}" Keyboard="Plain" />
+            <Entry Placeholder="additional note" Text="{Binding C_Note}" Keyboard="Plain" />
+            <Entry Placeholder="additional note" Text="{Binding D_Note}" Keyboard="Plain" />
+            <Entry Placeholder="additional note" Text="{Binding E_Note}" Keyboard="Plain" />
+        </StackLayout>
     </StackLayout>
 </ContentPage>
+
+<!--<StackLayout Padding="5, 10, 5, 5">
+    <Label Text="Title" FontSize="20" FontAttributes="Bold"/>
+    <Entry Placeholder="Name" Text="{Binding Name}" Keyboard="Text"/>
+    <Label Text="Info" FontSize="20" FontAttributes="Bold"/>
+    <Entry Placeholder="Password or other info" Text="{Binding A_Note}" Keyboard="Plain" />
+    <Entry Placeholder="Password or other info" Text="{Binding B_Note}" Keyboard="Plain"/>
+    <Entry Placeholder="Password or other info" Text="{Binding C_Note}" Keyboard="Plain"/>
+</StackLayout>-->

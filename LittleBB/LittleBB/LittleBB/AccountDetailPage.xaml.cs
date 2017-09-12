@@ -30,6 +30,8 @@ namespace LittleBB
                 A_Note = account.A_Note,
                 B_Note = account.B_Note,
                 C_Note = account.C_Note,
+                D_Note = account.D_Note,
+                E_Note = account.E_Note,
                 Status = account.Status
             };
         }
@@ -40,7 +42,7 @@ namespace LittleBB
 
             if (String.IsNullOrWhiteSpace(account.Name))
             {
-                await DisplayAlert("Error", "Please enter name for account", "OK");
+                await DisplayAlert("Error", "Please enter name for entry", "OK");
                 return;
             }
 

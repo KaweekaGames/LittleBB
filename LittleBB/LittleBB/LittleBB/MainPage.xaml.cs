@@ -81,6 +81,8 @@ namespace LittleBB
                 updatedAccount.A_Note = account.A_Note;
                 updatedAccount.B_Note = account.B_Note;
                 updatedAccount.C_Note = account.C_Note;
+                updatedAccount.D_Note = account.D_Note;
+                updatedAccount.E_Note = account.E_Note;
                 updatedAccount.Status = account.Status;
 
                 _connection.DeleteAsync(selectedAccount);
