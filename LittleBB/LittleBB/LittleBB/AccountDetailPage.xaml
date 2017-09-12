@@ -20,12 +20,3 @@
         </StackLayout>
     </StackLayout>
 </ContentPage>
-
-<!--<StackLayout Padding="5, 10, 5, 5">
-    <Label Text="Title" FontSize="20" FontAttributes="Bold"/>
-    <Entry Placeholder="Name" Text="{Binding Name}" Keyboard="Text"/>
-    <Label Text="Info" FontSize="20" FontAttributes="Bold"/>
-    <Entry Placeholder="Password or other info" Text="{Binding A_Note}" Keyboard="Plain" />
-    <Entry Placeholder="Password or other info" Text="{Binding B_Note}" Keyboard="Plain"/>
-    <Entry Placeholder="Password or other info" Text="{Binding C_Note}" Keyboard="Plain"/>
-</StackLayout>-->

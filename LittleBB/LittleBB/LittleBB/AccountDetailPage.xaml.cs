@@ -46,6 +46,7 @@ namespace LittleBB
                 return;
             }
 
+            //Check if this is a new account or an edit of existing account
             if (account.Status == null)
             {
                 AccountAdded?.Invoke(this, account);

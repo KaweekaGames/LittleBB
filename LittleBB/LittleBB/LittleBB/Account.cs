@@ -11,6 +11,7 @@ namespace LittleBB
         [MaxLength(255)]
         public string Name { get; set; }
 
+        //Can add additional notes if deemed neccessary in the future
         public string A_Note { get; set; }
         public string B_Note { get; set; }
         public string C_Note { get; set; }
