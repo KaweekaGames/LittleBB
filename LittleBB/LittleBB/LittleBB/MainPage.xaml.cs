@@ -28,8 +28,7 @@ namespace LittleBB
            
             var accounts = await _connection.Table<Account>().ToListAsync();
             _accounts = new ObservableCollection<Account>(accounts);
-            //calling Update() instead
-            //accountsListView.ItemsSource = _accounts.OrderBy(x => x.Name);
+        
             Update();
 
             base.OnAppearing();
@@ -68,13 +67,6 @@ namespace LittleBB
 
             page.AccountUpdated += (source, account) =>
             {
-                //selectedAccount.Name = account.Name;
-                //selectedAccount.A_Note = account.A_Note;
-                //selectedAccount.B_Note = account.B_Note;
-                //selectedAccount.C_Note = account.C_Note;
-                //selectedAccount.Status = account.Status;
-
-                //Hack
                 var updatedAccount = new Account();
 
                 updatedAccount.Name = account.Name;
@@ -115,8 +107,10 @@ namespace LittleBB
 
         private void Update(string searchText = null)
         {
+            //Clear list before populating with new order (standard alphabetical or modified by searchbar)
             accountsListView.ItemsSource = null;
 
+            //Keep liste updated based on text in searchbar
             if (String.IsNullOrWhiteSpace(searchText))
             {
                 //accountsListView.ItemsSource = null;

@@ -11,8 +11,8 @@
 namespace LittleBB {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("X:\\David\'s Stuff\\GitHub\\LittleBB\\LittleBB\\LittleBB\\LittleBB\\AccountDetailPage.xam" +
-        "l")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\davidb.FORMOSTPKG\\Documents\\Personal\\Github\\LittleBB\\LittleBB\\LittleBB\\L" +
+        "ittleBB\\AccountDetailPage.xaml")]
     public partial class AccountDetailPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
