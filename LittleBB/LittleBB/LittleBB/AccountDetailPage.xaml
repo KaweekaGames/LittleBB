@@ -12,11 +12,11 @@
         </StackLayout >
         <StackLayout Padding="0, 10, 0, 0">
             <Label Text="Notes" FontSize="20" FontAttributes="Bold"/>
-            <Entry Placeholder="note" Text="{Binding A_Note}" Keyboard="Plain" />
-            <Entry Placeholder="additional note" Text="{Binding B_Note}" Keyboard="Plain" />
-            <Entry Placeholder="additional note" Text="{Binding C_Note}" Keyboard="Plain" />
-            <Entry Placeholder="additional note" Text="{Binding D_Note}" Keyboard="Plain" />
-            <Entry Placeholder="additional note" Text="{Binding E_Note}" Keyboard="Plain" />
+            <Entry Placeholder="Add notes here" Text="{Binding A_Note}" Keyboard="Plain" />
+            <Entry Text="{Binding B_Note}" Keyboard="Plain" />
+            <Entry Text="{Binding C_Note}" Keyboard="Plain" />
+            <Entry Text="{Binding D_Note}" Keyboard="Plain" />
+            <Entry Text="{Binding E_Note}" Keyboard="Plain" />
         </StackLayout>
     </StackLayout>
 </ContentPage>
